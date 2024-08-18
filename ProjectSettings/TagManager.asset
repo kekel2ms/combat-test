@@ -23,8 +23,8 @@ TagManager:
   - Camera
   - MainCameraOnly
   - Floor
-  - 
-  - 
+  - Hitbox
+  - Hurtbox
   - 
   - 
   - 

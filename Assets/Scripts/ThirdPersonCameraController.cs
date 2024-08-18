@@ -20,11 +20,13 @@ public class ThirdPersonCameraController : MonoBehaviour
     [SerializeField]
     private float _mouseSensitivity = 100f;
 
+
     private Vector3 _cameraAngle;
     private Vector2 _cameraAngleDelta;
 
     private Vector3 _targetLookAt;
     private Vector3 _targetHitPoint;
+
 
     // Update is called once per frame
 
