@@ -20,43 +20,13 @@ public class ThirdPersonController : MonoBehaviour
     private float _idleDampTime = 0.1f;
 
     [SerializeField]
-    private float _comboResetDelay;
-
-    [SerializeField]
     private float _bodyRotationSpeed = 360f;
 
-    [SerializeField]
-    private Hurtbox _weaponHurtbox;
-
-    private bool _isComboResetting;
-    private float _currentComboResetTimer;
 
     // Update is called once per frame
     private void Update()
     {
         ProcessMovement();
-        ProcessAttackInput();
-        ProcessHitStop();
-    }
-
-
-    private bool _isHitstop;
-    private float _currentHitStopTimer;
-
-    private void ProcessHitStop()
-    {
-        if (_isHitstop)
-        {
-            _currentHitStopTimer -= Time.deltaTime;
-
-            _animator.SetFloat("Attacking Speed", 0.1f);
-
-            if (_currentHitStopTimer < 0f)
-            {
-                _animator.SetFloat("Attacking Speed", 1f);
-                _isHitstop = false;
-            }
-        }
     }
 
     private void ProcessMovement()
@@ -82,57 +52,5 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         _characterController.Move(input * _characterSpeed * Time.deltaTime);
-    }
-
-    private void ProcessAttackInput()
-    {
-        if (_isComboResetting)
-        {
-            _currentComboResetTimer-= Time.deltaTime;
-            if (_currentComboResetTimer < 0)
-            {
-                StopComboResetDelay();
-                SetAttackStatus(false);
-            }
-        }
-
-        if (_inputProcessor.IsAttackInputDown())
-        {
-            SetAttackStatus(true);
-            _animator.SetTrigger(AnimatorConst.Attack);
-        }
-    }
-
-    public void StartComboResetDelay()
-    {
-        _currentComboResetTimer = _comboResetDelay;
-        _isComboResetting = true;
-    }
-
-    public void StopComboResetDelay()
-    {
-        _currentComboResetTimer = 0;
-        _isComboResetting = false;
-    }
-
-    public void SetAttackStatus(bool isAttacking)
-    {
-        _animator.SetBool(AnimatorConst.IsAttacking, isAttacking);
-    }
-
-    public void ActivateWeaponHurtbox()
-    {
-        _weaponHurtbox.gameObject.SetActive(true);
-    }
-
-    public void DeactivateWeaponHurtbox()
-    {
-        _weaponHurtbox.gameObject.SetActive(false);
-    }
-
-    public void StartHitStop(Transform transform)
-    {
-        _isHitstop = true;
-        _currentHitStopTimer = 0.15f;
     }
 }

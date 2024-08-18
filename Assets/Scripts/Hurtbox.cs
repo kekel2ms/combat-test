@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Hurtbox : MonoBehaviour
 {
-    [Serializable]
-    public class HitEvent : UnityEvent<Transform> { }
-
     [SerializeField]
-    private HitEvent OnHit;
+    private Tag _targetTag;
+
+    public UnityEvent<Collision> OnHit = new UnityEvent<Collision>();
 
     private HashSet<GameObject> _hittedTarget = new HashSet<GameObject>();
 
@@ -23,32 +23,17 @@ public class Hurtbox : MonoBehaviour
             return;
         }
 
-        if (!_hittedTarget.Contains(other.gameObject))
+        if (!_hittedTarget.Contains(hit.GameObject))
         {
-            _hittedTarget.Add(other.gameObject);
-            hit.Hit(0);
+            _hittedTarget.Add(hit.GameObject);
 
-            OnHit.Invoke(other.transform);
+            if (_targetTag == hit.Tags)
+            {
+                hit.Hit(1);
+                OnHit.Invoke(collision);
+            }
         }
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    var hit = other.GetComponent<IHittable>();
-
-    //    if (hit == null)
-    //    {
-    //        return;
-    //    }
-
-    //    if (!_hittedTarget.Contains(other.gameObject))
-    //    {
-    //        _hittedTarget.Add(other.gameObject);
-    //        hit.Hit(0);
-
-    //        OnHit.Invoke(other.transform);
-    //    }
-    //}
 
     private void OnDisable()
     {

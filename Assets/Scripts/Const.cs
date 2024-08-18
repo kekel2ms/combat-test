@@ -7,6 +7,7 @@ public static class AnimatorConst
     public static readonly int DirectionY = Animator.StringToHash("Direction Y");
     public static readonly int IsAttacking = Animator.StringToHash("Is Attacking");
     public static readonly int Attack = Animator.StringToHash("Attack");
+    public static readonly int Damaged = Animator.StringToHash("Damaged");
 }
 
 public static class InputConst

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class StartComboReset : StateMachineBehaviour
 {
-    private ThirdPersonController _controller;
+    private CombatMechanicController _controller;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (_controller== null)
         {
-            _controller = animator.GetComponent<ThirdPersonController>();
+            _controller = animator.GetComponent<CombatMechanicController>();
         }
 
         _controller.StartComboResetDelay();
