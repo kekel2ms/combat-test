@@ -17,7 +17,7 @@ public class Hittable : MonoBehaviour, IHittable
 
     public GameObject GameObject => _parent;
 
-    public void Hit(int damage)
+    public void Hit(int damage, Collision collision)
     {
         OnHit.Invoke(damage);
     }

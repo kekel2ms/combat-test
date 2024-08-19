@@ -93,16 +93,6 @@ public class CombatMechanicController : MonoBehaviour
         _animator.SetBool(AnimatorConst.IsAttacking, isAttacking);
     }
 
-    public void ActivateWeaponHurtbox()
-    {
-        _weaponHurtbox.gameObject.SetActive(true);
-    }
-
-    public void DeactivateWeaponHurtbox()
-    {
-        _weaponHurtbox.gameObject.SetActive(false);
-    }
-
     public void StartHitStop(Collision collision)
     {
         _isHitstop = true;

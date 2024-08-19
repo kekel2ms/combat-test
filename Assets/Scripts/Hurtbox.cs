@@ -29,7 +29,7 @@ public class Hurtbox : MonoBehaviour
 
             if (_targetTag == hit.Tags)
             {
-                hit.Hit(1);
+                hit.Hit(1, collision);
                 OnHit.Invoke(collision);
             }
         }
