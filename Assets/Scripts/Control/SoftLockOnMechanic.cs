@@ -35,7 +35,7 @@ public class SoftLockOnMechanic : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        bool isAttacking = _animator.GetBool(AnimatorConst.IsAttacking) || _triggerSoftLock;
+        bool isAttacking = _animator.GetBool(AnimatorConst.IsAttacking) || _triggerSoftLock || _animator.GetBool(AnimatorConst.IsSpecialAttacking);
 
         if (_triggerSoftLock)
         {

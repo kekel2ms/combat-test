@@ -42,13 +42,13 @@ public class SpecialAttackController : MonoBehaviour
 
         if (_currentCooldown < 0f)
         {
-            if (_inputProcessor.IsSkillButtonDown())
+            if (_inputProcessor.IsSkillButtonDown() && !_animator.GetBool(AnimatorConst.IsAttacking))
             {
                 _currentCooldown = _skillCooldown;
                 _softLockMechanic.TriggerSoftLock();
 
                 _animator.SetTrigger(AnimatorConst.SpecialAttack);
-                _animator.SetBool(AnimatorConst.IsAttacking, true);
+                _animator.SetBool(AnimatorConst.IsSpecialAttacking, true);
 
                 _normalAttackController.enabled = false;
                 _playerMovementController.enabled = false;
@@ -64,7 +64,7 @@ public class SpecialAttackController : MonoBehaviour
 
     public void SkillDone()
     {
-        _animator.SetBool(AnimatorConst.IsAttacking, false);
+        _animator.SetBool(AnimatorConst.IsSpecialAttacking, false);
         _normalAttackController.enabled = true;
         _playerMovementController.enabled = true;
     }

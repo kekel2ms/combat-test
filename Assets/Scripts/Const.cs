@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class AnimatorConst
 {
     public static readonly int DirectionY = Animator.StringToHash("Direction Y");
     public static readonly int IsAttacking = Animator.StringToHash("Is Attacking");
+    public static readonly int IsSpecialAttacking = Animator.StringToHash("Is Special Attacking");
     public static readonly int Attack = Animator.StringToHash("Attack");
     public static readonly int Damaged = Animator.StringToHash("Damaged");
     public static readonly int Speed = Animator.StringToHash("Speed");
