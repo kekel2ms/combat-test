@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1416316850193208494}
-  _maxHealth: 10
+  _maxHealth: 5
   _healthBar: {fileID: 2284036349918203078}
   _hittables:
   - {fileID: 4624020473127173234}
