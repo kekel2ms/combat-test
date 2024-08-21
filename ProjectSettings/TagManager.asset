@@ -23,11 +23,11 @@ TagManager:
   - Camera
   - MainCameraOnly
   - Floor
+  - Hitbox
+  - Hurtbox
+  - Enemy
   - 
-  - 
-  - 
-  - 
-  - 
+  - Character Collider
   - 
   - Cockpit
   - Cockpit_3DSkybox
