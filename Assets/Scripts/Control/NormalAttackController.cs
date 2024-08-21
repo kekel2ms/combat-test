@@ -12,6 +12,9 @@ public class NormalAttackController : MonoBehaviour
     private InputProcessor _inputProcessor;
 
     [SerializeField]
+    private SoftLockOnMechanic _softLockMechanic;
+
+    [SerializeField]
     private float _comboResetDelay;
 
     private bool _isComboResetting;
@@ -36,6 +39,8 @@ public class NormalAttackController : MonoBehaviour
 
         if (_inputProcessor.IsAttackInputDown())
         {
+            _softLockMechanic.TriggerSoftLock();
+
             SetAttackStatus(true);
             _animator.SetTrigger(AnimatorConst.Attack);
         }

@@ -25,13 +25,22 @@ public class SoftLockOnMechanic : MonoBehaviour
     private Collider[] _colliderTemp = new Collider[10];
     private GameObject _latestLockOnTarget;
 
+    private bool _triggerSoftLock = false;
+
+    public void TriggerSoftLock()
+    {
+        _triggerSoftLock = true;
+    }
+
     // Update is called once per frame
     private void Update()
     {
-        bool isAttacking = _animator.GetBool(AnimatorConst.IsAttacking) || _inputProcessor.IsAttackInputDown();
+        bool isAttacking = _animator.GetBool(AnimatorConst.IsAttacking) || _triggerSoftLock;
 
-        if (_inputProcessor.IsAttackInputDown() || _inputProcessor.IsSkillButtonDown())
+        if (_triggerSoftLock)
         {
+            _triggerSoftLock = false;
+
             int count = Physics.OverlapBoxNonAlloc(_cone.transform.position, _cone.size / 2f, _colliderTemp, _cone.transform.rotation, _layerMask.value, QueryTriggerInteraction.Collide);
 
             float closestDistance = float.MaxValue;

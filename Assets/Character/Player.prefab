@@ -476,7 +476,7 @@ Transform:
   m_GameObject: {fileID: 7776721738467756812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.97000027, z: 2.096}
+  m_LocalPosition: {x: -0, y: 0.97000027, z: 4.096}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -501,7 +501,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 6, y: 3, z: 6}
+  m_Size: {x: 6, y: 3, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8736375994460520239
 GameObject:
@@ -845,6 +845,7 @@ MonoBehaviour:
   _characterController: {fileID: 4407198283688913152}
   _animator: {fileID: 1154490204224653430}
   _inputProcessor: {fileID: 8321371474136351015}
+  _softLockMechanic: {fileID: 4744538068013786510}
   _comboResetDelay: 0.15
 --- !u!114 &4744538068013786510
 MonoBehaviour:
@@ -978,6 +979,7 @@ MonoBehaviour:
   _inputProcessor: {fileID: 8321371474136351015}
   _playerMovementController: {fileID: 2689177690814801208}
   _normalAttackController: {fileID: 9032567687306847648}
+  _softLockMechanic: {fileID: 4744538068013786510}
   _cooldownIndicator: {fileID: 7875162814694427044}
   _skillCooldown: 3
 --- !u!4 &1989097029843436974 stripped

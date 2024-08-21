@@ -19,6 +19,9 @@ public class SpecialAttackController : MonoBehaviour
     private NormalAttackController _normalAttackController;
 
     [SerializeField]
+    private SoftLockOnMechanic _softLockMechanic;
+
+    [SerializeField]
     private Image _cooldownIndicator;
 
     [SerializeField]
@@ -42,6 +45,8 @@ public class SpecialAttackController : MonoBehaviour
             if (_inputProcessor.IsSkillButtonDown())
             {
                 _currentCooldown = _skillCooldown;
+                _softLockMechanic.TriggerSoftLock();
+
                 _animator.SetTrigger(AnimatorConst.SpecialAttack);
                 _animator.SetBool(AnimatorConst.IsAttacking, true);
 
